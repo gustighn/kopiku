@@ -8,7 +8,7 @@ const generateToken = (id) => {
 
 const cookieOptions = {
   httpOnly: true,
-  sameSite: 'lax',
+  sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
   maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
   secure: process.env.NODE_ENV === 'production'
 };
@@ -68,7 +68,12 @@ exports.login = async (req, res, next) => {
 };
 
 exports.logout = async (req, res) => {
-  res.cookie('token', '', { httpOnly: true, expires: new Date(0) });
+  res.cookie('token', '', { 
+    httpOnly: true, 
+    sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+    secure: process.env.NODE_ENV === 'production',
+    expires: new Date(0) 
+  });
   res.json({ success: true, message: 'Logout berhasil!' });
 };
 
