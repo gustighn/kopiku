@@ -3,7 +3,7 @@ import { FiInstagram, FiTwitter, FiFacebook, FiMail, FiHeart } from 'react-icons
 
 export default function Footer() {
   return (
-    <footer className="text-white/80" style={{ background: 'linear-gradient(180deg, #1E3932 0%, #152c27 100%)' }}>
+    <footer className="text-white/80 bg-ink">
       <div className="container-page py-16 md:py-20">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
           {/* Brand */}
@@ -14,7 +14,7 @@ export default function Footer() {
             </p>
             <div className="flex gap-2">
               {[FiInstagram, FiTwitter, FiFacebook].map((Icon, i) => (
-                <a key={i} href="#" className="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center text-white/50 hover:bg-[#00704A] hover:text-white transition-all duration-300">
+                  <a key={i} href="#" className="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center text-white/50 hover:bg-primary hover:text-white transition-all duration-300">
                   <Icon className="w-4 h-4" />
                 </a>
               ))}
@@ -23,7 +23,7 @@ export default function Footer() {
 
           {/* Links */}
           <div>
-            <h4 className="font-extrabold mb-5 text-xs uppercase tracking-widest text-[#a1c4b5]">Menu</h4>
+            <h4 className="font-extrabold mb-5 text-xs uppercase tracking-widest text-on-dark-soft">Menu</h4>
             <ul className="space-y-3">
               {[
                 { to: '/', label: 'Beranda' },
@@ -32,7 +32,7 @@ export default function Footer() {
                 { to: '/products?category=Latte', label: 'Latte' },
               ].map(link => (
                 <li key={link.label}>
-                  <Link to={link.to} className="text-white/50 hover:text-[#00704A] text-sm transition-colors">
+                  <Link to={link.to} className="text-white/50 hover:text-primary text-sm transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -41,11 +41,11 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-extrabold mb-5 text-xs uppercase tracking-widest text-[#a1c4b5]">Layanan</h4>
+            <h4 className="font-extrabold mb-5 text-xs uppercase tracking-widest text-on-dark-soft">Layanan</h4>
             <ul className="space-y-3">
               {['Tentang Kami', 'Kontak', 'FAQ', 'Kebijakan Privasi'].map(item => (
                 <li key={item}>
-                  <a href="#" className="text-white/50 hover:text-[#00704A] text-sm transition-colors">{item}</a>
+                  <a href="#" className="text-white/50 hover:text-primary text-sm transition-colors">{item}</a>
                 </li>
               ))}
             </ul>
@@ -53,7 +53,7 @@ export default function Footer() {
 
           {/* Newsletter */}
           <div>
-            <h4 className="font-extrabold mb-5 text-xs uppercase tracking-widest text-[#a1c4b5]">Newsletter</h4>
+            <h4 className="font-extrabold mb-5 text-xs uppercase tracking-widest text-on-dark-soft">Newsletter</h4>
             <p className="text-white/50 text-sm mb-4 leading-relaxed">Dapatkan info promo dan produk terbaru.</p>
             <div className="flex flex-col gap-2">
               <div className="relative">
@@ -61,10 +61,10 @@ export default function Footer() {
                 <input
                   type="email"
                   placeholder="Email kamu..."
-                  className="w-full pl-10 pr-4 py-2.5 rounded-full bg-white/5 border border-white/10 text-white placeholder-white/25 text-sm focus:outline-none focus:ring-2 focus:ring-[#00704A]/50 focus:border-[#00704A]/30"
+                  className="w-full pl-10 pr-4 py-2.5 rounded-full bg-white/5 border border-white/10 text-white placeholder-white/25 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/30"
                 />
               </div>
-              <button className="w-full py-2.5 bg-[#00704A] text-white rounded-full text-sm font-semibold hover:bg-[#1E9E6E] transition-all duration-300 hover:shadow-lg hover:shadow-[#00704A]/20">
+                <button className="w-full py-2.5 bg-primary text-white rounded-full text-sm font-semibold hover:bg-primary-light transition-all duration-300 hover:shadow-lg">
                 Kirim
               </button>
             </div>
@@ -75,7 +75,7 @@ export default function Footer() {
           <p className="text-white/25 text-xs">
             &copy; {new Date().getFullYear()} Kopiku. Hak cipta dilindungi.
           </p>
-          <p className="text-white/15 text-xs">Dibuat dengan <FiHeart className="inline w-3.5 h-3.5 text-[#00704A] mx-1" /> untuk pecinta kopi</p>
+          <p className="text-white/15 text-xs">Dibuat dengan <FiHeart className="inline w-3.5 h-3.5 text-primary mx-1" /> untuk pecinta kopi</p>
         </div>
       </div>
     </footer>

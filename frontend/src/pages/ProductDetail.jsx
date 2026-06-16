@@ -68,19 +68,19 @@ export default function ProductDetail() {
 
   return (
     <div className="bg-white min-h-screen">
-      <div className="container-page page-top pb-20 md:pb-28">
+      <div className="container-page page-top pb-32 md:pb-40">
         {/* Breadcrumb */}
         <button
           onClick={() => navigate(-1)}
-          className="inline-flex items-center gap-2 text-sm text-[#6b7280] hover:text-[#00704A] transition-colors mb-8"
+          className="inline-flex items-center gap-2 text-sm text-[#6b7280] hover:text-[#00704A] transition-colors mb-12"
         >
           <FiArrowLeft className="w-4 h-4" /> Kembali
         </button>
 
         {/* Main Grid */}
-        <div className="grid md:grid-cols-2 gap-12 lg:gap-20 mb-20 md:mb-28">
+        <div className="grid md:grid-cols-2 gap-16 lg:gap-28 mb-32 md:mb-40">
           {/* Image */}
-          <div className="rounded-2xl overflow-hidden flex items-center justify-center p-8 md:p-12 aspect-square border border-[#d1e7dd]" style={{ background: 'linear-gradient(135deg, #f0fdf4, #e8f5ee)' }}>
+          <div className="rounded-3xl overflow-hidden flex items-center justify-center p-12 md:p-16 aspect-square border border-[#d1e7dd]" style={{ background: 'linear-gradient(135deg, #f0fdf4, #e8f5ee)' }}>
             <img
               src={`/uploads/products/${product.image}`}
               alt={product.name}

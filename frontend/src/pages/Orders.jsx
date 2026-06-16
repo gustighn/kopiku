@@ -24,9 +24,9 @@ export default function Orders() {
 
   return (
     <div className="min-h-screen" style={{ background: 'linear-gradient(135deg, #f0fdf4 0%, #ffffff 50%, #f0fdf4 100%)' }}>
-      <div className="container-page page-top pb-20 md:pb-28">
+      <div className="container-page page-top pb-32 md:pb-40">
         {/* Header */}
-        <div className="mb-8">
+        <div className="mb-12">
           <Link to="/" className="inline-flex items-center gap-2 text-sm text-[#6b7280] hover:text-[#00704A] transition-colors mb-4">
             <FiArrowLeft className="w-4 h-4" /> Kembali ke Beranda
           </Link>
@@ -50,12 +50,12 @@ export default function Orders() {
               </Link>
             </div>
           ) : (
-            <div className="space-y-3">
+            <div className="space-y-5">
               {orders.map(order => (
-                <div key={order.id} className="bg-white rounded-2xl border border-[#d1e7dd] overflow-hidden">
+                <div key={order.id} className="bg-white rounded-3xl border border-[#d1e7dd] overflow-hidden">
                   <button
                     onClick={() => setExpanded(expanded === order.id ? null : order.id)}
-                    className="w-full p-5 flex items-center justify-between hover:bg-[#f1f8f5] transition-colors"
+                    className="w-full p-6 md:p-8 flex items-center justify-between hover:bg-[#f1f8f5] transition-colors"
                   >
                     <div className="flex items-center gap-3.5">
                       <div className="w-10 h-10 rounded-xl bg-[#f1f8f5] flex items-center justify-center flex-shrink-0">
@@ -81,7 +81,7 @@ export default function Orders() {
                   </button>
 
                   {expanded === order.id && (
-                    <div className="px-5 pb-5 border-t border-[#d1e7dd] animate-slide-down">
+                    <div className="px-6 pb-6 md:px-8 md:pb-8 border-t border-[#d1e7dd] animate-slide-down">
                       <div className="space-y-3 mt-4">
                         {order.items?.map(item => (
                           <div key={item.id} className="flex items-center gap-3">

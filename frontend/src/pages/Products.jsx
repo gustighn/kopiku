@@ -32,12 +32,12 @@ export default function Products() {
   return (
     <div className="bg-white min-h-screen">
       {/* Page Header */}
-      <div className="page-top pb-12 md:pb-16" style={{ background: 'linear-gradient(135deg, #f0fdf4 0%, #e8f5ee 50%, #ffffff 100%)' }}>
+      <div className="pt-36 md:pt-48 pb-16 md:pb-20" style={{ background: 'linear-gradient(135deg, #f0fdf4 0%, #e8f5ee 50%, #ffffff 100%)' }}>
         <div className="container-page">
-          <h1 className="text-3xl md:text-4xl font-bold text-[#1E3932] tracking-tight">
+          <h1 className="text-3xl md:text-4xl font-bold text-ink tracking-tight">
             {search ? `Hasil Pencarian: "${search}"` : 'Menu Kopi'}
           </h1>
-          <p className="text-[#6b7280] mt-2 text-sm md:text-base">
+          <p className="text-muted mt-2 text-sm md:text-base">
             {search ? `Menampilkan hasil untuk "${search}"` : 'Temukan kopi favorit kamu'}
           </p>
         </div>
@@ -50,11 +50,11 @@ export default function Products() {
             <div className="sticky top-24 space-y-8">
               {/* Category */}
               <div>
-                <h3 className="font-semibold text-[#1E3932] mb-4 text-sm uppercase tracking-wider">Kategori</h3>
+                <h3 className="font-semibold text-ink mb-4 text-sm uppercase tracking-wider">Kategori</h3>
                 <div className="space-y-1.5">
                   <button
                     onClick={() => handleCategoryChange('')}
-                    className={`w-full text-left px-4 py-2.5 rounded-xl text-sm transition-all font-medium ${!category ? 'bg-[#00704A] text-white shadow-md shadow-[#00704A]/20' : 'text-[#374151] hover:bg-[#f1f8f5]'}`}
+                    className={`w-full text-left px-4 py-2.5 rounded-xl text-sm transition-all font-medium ${!category ? 'bg-primary text-white shadow-md' : 'text-body hover:bg-surface-soft'}`}
                   >
                     Semua
                   </button>
@@ -62,7 +62,7 @@ export default function Products() {
                     <button
                       key={cat}
                       onClick={() => handleCategoryChange(cat)}
-                      className={`w-full text-left px-4 py-2.5 rounded-xl text-sm transition-all font-medium ${category === cat ? 'bg-[#00704A] text-white shadow-md shadow-[#00704A]/20' : 'text-[#374151] hover:bg-[#f1f8f5]'}`}
+                      className={`w-full text-left px-4 py-2.5 rounded-xl text-sm transition-all font-medium ${category === cat ? 'bg-primary text-white shadow-md' : 'text-body hover:bg-surface-soft'}`}
                     >
                       {cat}
                     </button>
@@ -72,12 +72,12 @@ export default function Products() {
 
               {/* Sort */}
               <div>
-                <h3 className="font-semibold text-[#1E3932] mb-4 text-sm uppercase tracking-wider">Urutkan</h3>
+                <h3 className="font-semibold text-ink mb-4 text-sm uppercase tracking-wider">Urutkan</h3>
                 <div className="relative">
                   <select
                     value={sort}
                     onChange={e => { setSort(e.target.value); setPage(1); }}
-                    className="w-full px-4 py-2.5 rounded-xl border border-[#d1e7dd] bg-white text-[#1E3932] text-sm font-medium focus:ring-2 focus:ring-[#00704A]/30 focus:border-[#00704A]/40 focus:outline-none appearance-none pr-8"
+                    className="w-full px-4 py-2.5 rounded-xl border border-surface-strong bg-white text-ink text-sm font-medium focus:ring-2 focus:ring-primary/30 focus:border-primary/40 focus:outline-none appearance-none pr-8"
                   >
                     <option value="">Terbaru</option>
                     <option value="price_asc">Harga: Rendah ke Tinggi</option>
@@ -85,7 +85,7 @@ export default function Products() {
                     <option value="rating">Rating Tertinggi</option>
                     <option value="name">Nama A-Z</option>
                   </select>
-                  <FiChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#6b7280] pointer-events-none" />
+                  <FiChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted pointer-events-none" />
                 </div>
               </div>
 
@@ -104,7 +104,7 @@ export default function Products() {
           {/* Mobile Filter FAB */}
           <button
             onClick={() => setFilterOpen(true)}
-            className="lg:hidden fixed bottom-6 right-6 z-30 bg-[#00704A] text-white px-4 py-3 rounded-full shadow-xl shadow-[#00704A]/25 hover:bg-[#004E31] transition-all flex items-center gap-2 text-sm font-semibold"
+            className="lg:hidden fixed bottom-6 right-6 z-30 bg-primary text-white px-4 py-3 rounded-full shadow-xl hover:bg-primary-dark transition-all flex items-center gap-2 text-sm font-semibold"
           >
             <FiFilter className="w-4 h-4" /> Filter
           </button>
@@ -118,18 +118,18 @@ export default function Products() {
                 onClick={e => e.stopPropagation()}
               >
                 <div className="flex justify-between items-center mb-6">
-                  <h3 className="text-lg font-bold text-[#1E3932]">Filter & Urutkan</h3>
-                  <button onClick={() => setFilterOpen(false)} className="p-2 hover:bg-[#f1f8f5] rounded-lg transition-colors">
-                    <FiX className="w-5 h-5 text-[#1E3932]" />
+                  <h3 className="text-lg font-bold text-ink">Filter & Urutkan</h3>
+                  <button onClick={() => setFilterOpen(false)} className="p-2 hover:bg-surface-soft rounded-lg transition-colors">
+                    <FiX className="w-5 h-5 text-ink" />
                   </button>
                 </div>
 
                 <div className="mb-6">
-                  <h4 className="font-semibold text-[#1E3932] text-sm mb-3">Kategori</h4>
+                  <h4 className="font-semibold text-ink text-sm mb-3">Kategori</h4>
                   <div className="flex flex-wrap gap-2">
                     <button
                       onClick={() => handleCategoryChange('')}
-                      className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${!category ? 'bg-[#00704A] text-white' : 'bg-[#f1f8f5] text-[#374151] border border-[#d1e7dd]'}`}
+                      className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${!category ? 'bg-primary text-white' : 'bg-surface-soft text-body border border-surface-strong'}`}
                     >
                       Semua
                     </button>
@@ -137,7 +137,7 @@ export default function Products() {
                       <button
                         key={cat}
                         onClick={() => handleCategoryChange(cat)}
-                        className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${category === cat ? 'bg-[#00704A] text-white' : 'bg-[#f1f8f5] text-[#374151] border border-[#d1e7dd]'}`}
+                        className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${category === cat ? 'bg-primary text-white' : 'bg-surface-soft text-body border border-surface-strong'}`}
                       >
                         {cat}
                       </button>
@@ -146,11 +146,11 @@ export default function Products() {
                 </div>
 
                 <div className="mb-6">
-                  <h4 className="font-semibold text-[#1E3932] text-sm mb-3">Urutkan</h4>
+                  <h4 className="font-semibold text-ink text-sm mb-3">Urutkan</h4>
                   <select
                     value={sort}
                     onChange={e => setSort(e.target.value)}
-                    className="w-full px-4 py-3 rounded-xl border border-[#d1e7dd] bg-white text-[#1E3932] text-sm focus:outline-none focus:ring-2 focus:ring-[#00704A]/30"
+                    className="w-full px-4 py-3 rounded-xl border border-surface-strong bg-white text-ink text-sm focus:outline-none focus:ring-2 focus:ring-primary/30"
                   >
                     <option value="">Terbaru</option>
                     <option value="price_asc">Harga: Rendah ke Tinggi</option>
@@ -161,7 +161,7 @@ export default function Products() {
 
                 <button
                   onClick={() => setFilterOpen(false)}
-                  className="w-full py-3 bg-[#00704A] text-white rounded-xl font-semibold text-sm"
+                  className="w-full py-3 bg-primary text-white rounded-xl font-semibold text-sm"
                 >
                   Terapkan Filter
                 </button>
@@ -174,9 +174,9 @@ export default function Products() {
             {/* Active filters bar */}
             {(category || sort || search) && (
               <div className="flex flex-wrap items-center gap-2 mb-6">
-                <span className="text-xs text-[#6b7280] font-medium">Aktif:</span>
+                <span className="text-xs text-muted font-medium">Aktif:</span>
                 {category && (
-                  <span className="inline-flex items-center gap-1 px-3 py-1 bg-[#f1f8f5] border border-[#d1e7dd] text-[#00704A] text-xs rounded-full font-medium">
+                  <span className="inline-flex items-center gap-1 px-3 py-1 bg-surface-soft border border-surface-strong text-primary text-xs rounded-full font-medium">
                     {category}
                     <button onClick={() => setCategory('')} className="ml-0.5 hover:text-red-500 transition-colors">
                       <FiX className="w-3 h-3" />
@@ -184,8 +184,8 @@ export default function Products() {
                   </span>
                 )}
                 {sort && (
-                  <span className="inline-flex items-center gap-1 px-3 py-1 bg-[#f1f8f5] border border-[#d1e7dd] text-[#00704A] text-xs rounded-full font-medium">
-                    {sort === 'price_asc' ? 'Harga Terendah' : sort === 'price_desc' ? 'Harga Tertinggi' : sort === 'rating' ? 'Rating Terbaik' : 'A-Z'}
+                  <span className="inline-flex items-center gap-1 px-3 py-1 bg-surface-soft border border-surface-strong text-primary text-xs rounded-full font-medium">
+                    {sort === 'price_asc' ? 'Harga Terendah' : sort === 'price_desc' ? 'Harga Terendah' : sort === 'rating' ? 'Rating Terbaik' : 'A-Z'}
                     <button onClick={() => setSort('')} className="ml-0.5 hover:text-red-500 transition-colors">
                       <FiX className="w-3 h-3" />
                     </button>
@@ -204,7 +204,7 @@ export default function Products() {
               </div>
             ) : (
               <>
-                <p className="text-sm text-[#6b7280] mb-5">{products.length} produk ditemukan</p>
+                <p className="text-sm text-muted mb-5">{products.length} produk ditemukan</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4 md:gap-5">
                   {products.map(product => <ProductCard key={product.id} product={product} />)}
                 </div>
@@ -214,12 +214,12 @@ export default function Products() {
                   <div className="flex justify-center items-center gap-2 mt-10">
                     {[...Array(pagination.totalPages)].map((_, i) => (
                       <button
-                        key={i}
-                        onClick={() => setPage(i + 1)}
-                        className={`w-9 h-9 rounded-full text-sm font-semibold transition-all ${page === i + 1 ? 'bg-[#00704A] text-white shadow-md shadow-[#00704A]/20' : 'bg-[#f1f8f5] text-[#374151] hover:bg-[#d1e7dd]'}`}
-                      >
-                        {i + 1}
-                      </button>
+                          key={i}
+                          onClick={() => setPage(i + 1)}
+                          className={`w-9 h-9 rounded-full text-sm font-semibold transition-all ${page === i + 1 ? 'bg-primary text-white shadow-md' : 'bg-surface-soft text-body hover:bg-surface-strong'}`}
+                        >
+                          {i + 1}
+                        </button>
                     ))}
                   </div>
                 )}

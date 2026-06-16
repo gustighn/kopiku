@@ -54,30 +54,30 @@ export default function Checkout() {
 
   return (
     <div className="min-h-screen" style={{ background: 'linear-gradient(135deg, #f0fdf4 0%, #ffffff 50%, #f0fdf4 100%)' }}>
-      <div className="container-page page-top pb-20 md:pb-28">
+      <div className="container-page page-top pb-32 md:pb-40">
         {/* Header */}
-        <div className="mb-8">
+        <div className="mb-12">
           <button
             onClick={() => navigate('/cart')}
-            className="inline-flex items-center gap-2 text-sm text-[#6b7280] hover:text-[#00704A] transition-colors mb-4"
+            className="inline-flex items-center gap-2 text-sm text-[#6b7280] hover:text-[#00704A] transition-colors mb-6"
           >
             <FiArrowLeft className="w-4 h-4" /> Kembali ke Keranjang
           </button>
-          <h1 className="text-2xl md:text-3xl font-bold text-[#1E3932] tracking-tight">Checkout</h1>
+              <h1 className="text-3xl md:text-4xl font-bold text-ink tracking-tight">Checkout</h1>
         </div>
 
-        <form onSubmit={handleSubmit(onSubmit)} className="grid lg:grid-cols-3 gap-6">
-          <div className="lg:col-span-2 space-y-5">
+        <form onSubmit={handleSubmit(onSubmit)} className="grid lg:grid-cols-3 gap-10">
+          <div className="lg:col-span-2 space-y-8">
             {/* Shipping */}
-            <div className="bg-white rounded-2xl p-6 border border-[#d1e7dd]">
-              <h3 className="font-bold text-[#1E3932] text-base mb-5">Alamat Pengiriman</h3>
-              <div className="grid md:grid-cols-2 gap-4">
+            <div className="bg-white rounded-3xl p-8 border border-[#d1e7dd]">
+              <h3 className="font-bold text-[#1E3932] text-lg mb-6">Alamat Pengiriman</h3>
+              <div className="grid md:grid-cols-2 gap-6">
                 <div className="md:col-span-2">
-                  <label className="block text-sm font-medium text-[#374151] mb-2">Alamat Lengkap</label>
+                  <label className="block text-sm font-medium text-body mb-2">Alamat Lengkap</label>
                   <textarea
                     {...register('address', { required: 'Alamat wajib diisi' })}
                     rows={3}
-                    className="w-full px-4 py-3 rounded-xl border border-[#d1e7dd] bg-white text-[#1E3932] text-sm focus:ring-2 focus:ring-[#00704A]/30 focus:outline-none resize-none"
+                    className="w-full px-4 py-3 rounded-xl border border-surface-strong bg-white text-ink text-sm focus:ring-2 focus:ring-primary/30 focus:outline-none resize-none"
                     placeholder="Jl. Contoh No. 123, Kelurahan, Kecamatan"
                   />
                   {errors.address && <p className="text-red-500 text-xs mt-1.5">{errors.address.message}</p>}
@@ -116,15 +116,15 @@ export default function Checkout() {
             </div>
 
             {/* Payment */}
-            <div className="bg-white rounded-2xl p-6 border border-[#d1e7dd]">
-              <h3 className="font-bold text-[#1E3932] text-base mb-5">Metode Pembayaran</h3>
-              <div className="space-y-3">
+            <div className="bg-white rounded-3xl p-8 border border-[#d1e7dd]">
+              <h3 className="font-bold text-[#1E3932] text-lg mb-6">Metode Pembayaran</h3>
+              <div className="space-y-4">
                 {paymentMethods.map(method => (
                   <label
                     key={method.value}
                     className={`flex items-center gap-4 p-4 rounded-xl border cursor-pointer transition-all ${paymentMethod === method.value
                       ? 'border-[#00704A] bg-[#f1f8f5]'
-                      : 'border-[#d1e7dd] hover:border-[#00704A]/40'
+                      : 'border-surface-strong hover:border-primary/40'
                     }`}
                   >
                     <input
@@ -135,7 +135,7 @@ export default function Checkout() {
                       onChange={() => setPaymentMethod(method.value)}
                       className="hidden"
                     />
-                    <div className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${paymentMethod === method.value ? 'bg-[#00704A] text-white' : 'bg-[#f1f8f5] text-[#374151]'}`}>
+                    <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${paymentMethod === method.value ? 'bg-primary text-white' : 'bg-surface-soft text-body'}`}>
                       <method.icon className="w-5 h-5" />
                     </div>
                     <div>
@@ -155,10 +155,10 @@ export default function Checkout() {
 
           {/* Order Summary */}
           <div className="lg:col-span-1">
-            <div className="bg-white rounded-2xl p-6 border border-[#d1e7dd] sticky top-24">
-              <h3 className="font-bold text-[#1E3932] text-base mb-5">Ringkasan Pesanan</h3>
+            <div className="bg-white rounded-3xl p-8 border border-[#d1e7dd] sticky top-32">
+              <h3 className="font-bold text-[#1E3932] text-lg mb-6">Ringkasan Pesanan</h3>
 
-              <div className="space-y-3 mb-5 max-h-48 overflow-y-auto pr-1">
+              <div className="space-y-4 mb-6 max-h-48 overflow-y-auto pr-2">
                 {items.map(item => (
                   <div key={item.id} className="flex items-center gap-3">
                     <img

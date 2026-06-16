@@ -23,9 +23,9 @@ export default function AdminLayout() {
   const SidebarContent = ({ compact = false, onClose }) => (
     <>
       {/* Logo area */}
-      <div className={`flex items-center border-b border-[#d1e7dd] ${compact ? 'p-4 justify-center' : 'p-5 gap-3'}`}>
+      <div className={`flex items-center border-b border-surface-strong ${compact ? 'p-4 justify-center' : 'p-5 gap-3'}`}>
         {!compact && (
-          <span className="font-bold text-lg tracking-tight text-[#1E3932] flex-1">Kopiku Admin</span>
+          <span className="font-bold text-lg tracking-tight text-ink flex-1">Kopiku Admin</span>
         )}
         <button
           onClick={onClose || (() => setSidebarOpen(!sidebarOpen))}
@@ -115,7 +115,7 @@ export default function AdminLayout() {
               onClick={() => setMobileSidebarOpen(true)}
               className="lg:hidden p-2 rounded-xl hover:bg-[#f1f8f5] transition-colors"
             >
-              <FiMenu className="w-5 h-5 text-[#1E3932]" />
+              <FiMenu className="w-5 h-5 text-ink" />
             </button>
             <span className="text-sm font-semibold text-[#374151] hidden sm:block">
               {menuItems.find(m => m.to === location.pathname || (m.to !== '/admin' && location.pathname.startsWith(m.to)))?.label || 'Dashboard'}
@@ -128,7 +128,7 @@ export default function AdminLayout() {
               <p className="text-sm font-semibold text-[#1E3932] leading-none">{user?.name}</p>
               <p className="text-xs text-[#9ca3af] mt-0.5">Admin</p>
             </div>
-            <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#00704A] to-[#1E9E6E] flex items-center justify-center flex-shrink-0 shadow-sm">
+            <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-primary to-primary-light flex items-center justify-center shrink-0 shadow-sm">
               <span className="text-white text-xs font-bold">{user?.name?.charAt(0)}</span>
             </div>
           </div>

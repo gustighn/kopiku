@@ -14,9 +14,9 @@ const categories = [
 ];
 
 const testimonials = [
-  { name: 'Rina Pratiwi', text: 'Kopi Susu Gula Aren-nya juara! Manisnya pas, kopinya nendang. Pasti order lagi!', rating: 5 },
-  { name: 'Budi Santoso', text: 'Avocado Coffee ini unik banget. Perpaduan alpukat dan kopi yang sempurna. Recommended!', rating: 5 },
-  { name: 'Dewi Ayu', text: 'Pengirimannya cepat, packagingnya rapi. Kopi Pandan Latte-nya harum dan enak banget.', rating: 4 },
+  { name: 'Akmal Adi Zero', text: 'Kopi Susu Gula Aren-nya juara! Manisnya pas, kopinya nendang. Pasti order lagi!', rating: 5 },
+  { name: 'Hafiz Ilmu', text: 'Avocado Coffee ini unik banget. Perpaduan alpukat dan kopi yang sempurna. Recommended!', rating: 5 },
+  { name: 'Zuanda Bekasi', text: 'Pengirimannya cepat, packagingnya rapi. Kopi Pandan Latte-nya harum dan enak banget.', rating: 4 },
 ];
 
 const features = [
@@ -49,35 +49,28 @@ export default function Home() {
   return (
     <div>
       {/* ── Hero ── */}
-      <section className="relative hero-top pb-24 md:pb-32 overflow-hidden" style={{ background: 'linear-gradient(135deg, #f0fdf4 0%, #e8f5ee 30%, #ffffff 70%, #f0fdf4 100%)' }}>
-        {/* Decorative Circles */}
-        <div className="hero-circle hero-circle-lg" style={{ top: '-100px', right: '-100px', background: 'rgba(0,112,74,0.05)' }} />
-        <div className="hero-circle hero-circle-md" style={{ bottom: '-50px', left: '10%', background: 'rgba(0,112,74,0.04)' }} />
-        <div className="hero-circle hero-circle-sm" style={{ top: '20%', left: '5%', background: 'rgba(0,112,74,0.03)' }} />
-        <div className="hero-circle" style={{ width: '400px', height: '400px', top: '10%', right: '15%', background: 'rgba(0,112,74,0.04)' }} />
-
+      <section className="relative pt-40 md:pt-56 pb-20 md:pb-32 overflow-hidden bg-gray-50">
         <div className="container-page relative z-10">
-          <div className="grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
+          <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Left: Text content */}
-            <div className="animate-fade-in text-center md:text-left">
+            <div className="animate-fade-in text-center md:text-left flex flex-col items-center md:items-start">
               {/* Rewards Badge */}
-              <div className="rewards-badge mb-6 inline-flex">
-                <FiStar className="w-4 h-4 text-[#00704A]" />
+              <div className="rewards-badge mb-6 inline-flex items-center gap-2 px-4 py-1.5 bg-green-50 text-green-700 rounded-full text-sm font-semibold">
+                <FiStar className="w-4 h-4 text-green-700" />
                 <span>KOPIKU REWARDS</span>
               </div>
-
-              <h1 className="heading-serif text-4xl sm:text-5xl lg:text-6xl xl:text-7xl mb-5 leading-[1.05] tracking-tight">
-                Waktu Paling<br />Nikmat dalam<br />Tahun Ini
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-gray-900 leading-tight">
+                Nikmati Kopi<br />Terbaik Hari Ini
               </h1>
-              <p className="text-[#6b7280] text-base md:text-lg mb-8 max-w-md mx-auto md:mx-0 leading-relaxed">
-                Daftar untuk akses eksklusif promo minuman di musim ini. Nikmati kopi terbaik untuk momen spesialmu.
+              <p className="text-gray-500 text-base md:text-lg mb-10 max-w-md leading-relaxed">
+                Pesan kopi favoritmu dengan mudah. Kualitas premium, rasa autentik, dan pengiriman cepat.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
-                <Link to="/products" className="btn-primary-green inline-flex items-center justify-center gap-2 px-7 py-3.5 text-sm">
-                  Belanja Sekarang <FiArrowRight className="w-4 h-4" />
+              <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                <Link to="/products" className="inline-flex items-center justify-center px-8 py-3.5 bg-gray-900 text-white rounded-full font-medium hover:bg-gray-800 transition-colors">
+                  Belanja Sekarang
                 </Link>
-                <Link to="/products" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white text-[#00704A] border-2 border-[#00704A]/20 rounded-xl font-semibold text-sm hover:bg-[#f1f8f5] hover:border-[#00704A]/40 transition-all">
+                <Link to="/products" className="inline-flex items-center justify-center px-8 py-3.5 bg-white text-gray-900 border border-gray-200 rounded-full font-medium hover:bg-gray-50 transition-colors">
                   Lihat Menu
                 </Link>
               </div>
@@ -85,75 +78,72 @@ export default function Home() {
 
             {/* Right: Featured Product Spotlight */}
             <div className="hidden md:flex justify-center animate-slide-up relative">
-              {/* Background decorative circle */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[380px] h-[380px] lg:w-[440px] lg:h-[440px] rounded-full" style={{ background: 'rgba(0,112,74,0.06)' }} />
-
               {featuredProduct ? (
                 <div className="relative z-10 w-72 lg:w-80">
-                  {/* Featured Card */}
-                  <div className="product-card-featured p-6 lg:p-8 shadow-2xl shadow-[#00704A]/20">
-                    <div className="relative z-10">
+                  {/* Featured Item without background */}
+                  <div className="p-4 lg:p-6 flex flex-col items-center text-center">
+                    <div className="relative z-10 w-full">
                       {/* Navigation Arrows */}
                       {products.length > 1 && (
                         <div className="flex items-center justify-between mb-4">
                           <button
                             onClick={() => setFeaturedIdx(prev => prev === 0 ? products.length - 1 : prev - 1)}
-                            className="w-8 h-8 rounded-full bg-white/15 hover:bg-white/25 flex items-center justify-center transition-colors"
+                            className="w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors shadow-sm"
                           >
-                            <FiChevronLeft className="w-5 h-5 text-white" />
+                            <FiChevronLeft className="w-5 h-5 text-gray-700" />
                           </button>
                           <button
                             onClick={() => setFeaturedIdx(prev => (prev + 1) % products.length)}
-                            className="w-8 h-8 rounded-full bg-white/15 hover:bg-white/25 flex items-center justify-center transition-colors"
+                            className="w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors shadow-sm"
                           >
-                            <FiChevronRight className="w-5 h-5 text-white" />
+                            <FiChevronRight className="w-5 h-5 text-gray-700" />
                           </button>
                         </div>
                       )}
 
                       {/* Product Image */}
-                      <div className="flex justify-center mb-5">
+                      <div className="flex justify-center mb-6">
                         <img
                           src={`/uploads/products/${featuredProduct.image}`}
                           alt={featuredProduct.name}
-                          className="w-44 h-44 lg:w-52 lg:h-52 object-contain drop-shadow-2xl transition-all duration-500"
-                          style={{ filter: 'drop-shadow(0 15px 30px rgba(0,0,0,0.3))' }}
+                          className="w-56 h-56 lg:w-64 lg:h-64 object-contain transition-all duration-500"
+                          style={{ filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.15))' }}
                         />
                       </div>
 
                       {/* Product Info */}
-                      <h3 className="text-xl lg:text-2xl font-bold text-white mb-2 leading-tight">{featuredProduct.name}</h3>
+                      <h3 className="text-2xl lg:text-3xl font-bold text-[#1E3932] mb-3 leading-tight">{featuredProduct.name}</h3>
 
                       {/* Category Badge */}
-                      <span className="inline-block px-3 py-1 rounded-full bg-white/15 text-white/90 text-xs font-medium mb-4">
+                      <span className="inline-block px-4 py-1.5 rounded-full bg-[#00704A]/10 text-[#00704A] text-xs font-bold mb-5 tracking-wide uppercase">
                         {featuredProduct.category}
                       </span>
 
                       {/* Price */}
-                      <div className="flex items-center justify-between mb-5">
-                        <span className="text-lg font-bold text-white">{formatPrice(featuredProduct.price)}</span>
-                        <div className="flex items-center gap-1">
-                          <FaStar className="w-3.5 h-3.5 text-amber-300" />
-                          <span className="text-white/80 text-sm font-medium">{Number(featuredProduct.rating || 5).toFixed(1)}</span>
+                      <div className="flex items-center justify-center gap-6 mb-6">
+                        <span className="text-xl font-bold text-[#1E3932]">{formatPrice(featuredProduct.price)}</span>
+                        <div className="flex items-center gap-1.5 bg-amber-50 px-2 py-1 rounded-md border border-amber-100">
+                          <FaStar className="w-4 h-4 text-amber-400" />
+                          <span className="text-amber-700 text-sm font-bold">{Number(featuredProduct.rating || 5).toFixed(1)}</span>
                         </div>
                       </div>
 
                       {/* CTA Button */}
                       <Link
                         to={`/products/${featuredProduct.id}`}
-                        className="block w-full text-center py-3 bg-white text-[#00704A] rounded-full font-bold text-sm hover:bg-gray-50 transition-all shadow-lg uppercase tracking-wider"
+                        className="block w-full text-center py-3.5 bg-[#00704A] text-white rounded-full font-bold text-sm hover:bg-[#004E31] transition-all shadow-lg shadow-[#00704A]/20 uppercase tracking-wider"
                       >
                         Lihat Detail
                       </Link>
 
                       {/* Dot indicators */}
                       {products.length > 1 && (
-                        <div className="flex justify-center gap-1.5 mt-4">
+                        <div className="flex justify-center gap-2 mt-6">
                           {products.map((_, i) => (
                             <button
                               key={i}
                               onClick={() => setFeaturedIdx(i)}
-                              className={`w-2 h-2 rounded-full transition-all duration-300 ${i === featuredIdx ? 'bg-white w-6' : 'bg-white/30 hover:bg-white/50'}`}
+                              className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${i === featuredIdx ? 'bg-[#00704A] w-8' : 'bg-gray-300 hover:bg-gray-400'}`}
                             />
                           ))}
                         </div>
@@ -170,17 +160,17 @@ export default function Home() {
       </section>
 
       {/* ── Features Bar ── */}
-      <section className="bg-white border-y border-[#e5e7eb]">
-        <div className="container-page py-14 md:py-20">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+      <section className="bg-white py-16 md:py-24 border-b border-gray-100">
+        <div className="container-page">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
             {features.map((feature, i) => (
-              <div key={i} className="flex items-center gap-4 group">
-                <div className="w-12 h-12 rounded-2xl bg-[#f1f8f5] border border-[#d1e7dd] flex items-center justify-center text-xl flex-shrink-0 text-[#00704A] group-hover:bg-[#00704A] group-hover:text-white group-hover:border-[#00704A] transition-all duration-300">
+              <div key={i} className="flex flex-col items-center text-center gap-4 group">
+                <div className="w-14 h-14 rounded-2xl bg-gray-50 flex items-center justify-center text-gray-900 group-hover:bg-gray-100 transition-colors">
                   {feature.icon}
                 </div>
                 <div>
-                  <h4 className="font-extrabold text-[#1E3932] text-sm leading-snug">{feature.title}</h4>
-                  <p className="text-[#6b7280] text-xs mt-0.5 font-medium">{feature.desc}</p>
+                  <h4 className="font-semibold text-gray-900 mb-2">{feature.title}</h4>
+                  <p className="text-gray-500 text-sm">{feature.desc}</p>
                 </div>
               </div>
             ))}
@@ -189,42 +179,42 @@ export default function Home() {
       </section>
 
       {/* ── Featured Products ── */}
-      <section className="bg-white">
-        <div className="container-page py-24 md:py-32 lg:py-36">
-          <div className="flex items-end justify-between mb-12 md:mb-16">
-            <div>
-              <p className="text-xs font-bold uppercase tracking-widest text-[#00704A] mb-2.5">Pilihan Kami</p>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-[#1E3932] tracking-tight">Produk Populer</h2>
-            </div>
-            <Link to="/products" className="text-sm font-bold text-[#00704A] hover:text-[#004E31] flex items-center gap-1.5 transition-colors whitespace-nowrap">
-              Lihat Semua <FiArrowRight className="w-4 h-4" />
-            </Link>
+      <section className="bg-gray-50 py-20 md:py-32">
+        <div className="container-page">
+          <div className="flex flex-col items-center text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Produk Populer</h2>
+            <p className="text-gray-500 max-w-2xl mx-auto">Pilihan terbaik yang paling sering dipesan oleh pelanggan kami.</p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6">
-            {products.map(product => <ProductCard key={product.id} product={product} />)}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+            {products.slice(0, 4).map(product => <ProductCard key={product.id} product={product} />)}
+          </div>
+          <div className="mt-12 text-center">
+            <Link to="/products" className="inline-flex items-center gap-2 px-8 py-3 border border-gray-200 bg-white text-gray-900 rounded-full font-medium hover:bg-gray-50 transition-colors">
+              Lihat Semua Produk <FiArrowRight />
+            </Link>
           </div>
         </div>
       </section>
 
       {/* ── Categories ── */}
-      <section style={{ background: 'linear-gradient(135deg, #f0fdf4 0%, #e8f5ee 50%, #f0fdf4 100%)' }} className="border-y border-[#d1e7dd]">
-        <div className="container-page py-24 md:py-32 lg:py-36">
-          <div className="text-center mb-12 md:mb-16">
-            <p className="text-xs font-bold uppercase tracking-widest text-[#00704A] mb-2.5">Pilihan Rasa</p>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-[#1E3932] tracking-tight">Kategori Produk</h2>
+      <section className="bg-white py-20 md:py-32">
+        <div className="container-page">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Kategori Pilihan</h2>
+            <p className="text-gray-500">Temukan kopi sesuai dengan seleramu.</p>
           </div>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {categories.map(cat => (
               <Link
                 key={cat.name}
                 to={`/products?category=${cat.name}`}
-                className="bg-white border border-[#e5e7eb] rounded-3xl p-8 text-center group hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#00704A]/6 hover:border-[#00704A]/25 transition-all duration-450"
+                className="bg-gray-50 rounded-3xl p-10 flex flex-col items-center justify-center text-center group hover:bg-[#f1f8f5] border border-transparent hover:border-[#d1e7dd] transition-all duration-300"
               >
-                <div className="w-16 h-16 mx-auto rounded-2xl bg-[#f1f8f5] border border-[#d1e7dd]/60 text-[#00704A] text-2.5xl mb-5 flex items-center justify-center group-hover:bg-[#00704A] group-hover:text-white group-hover:border-[#00704A] group-hover:scale-105 transition-all duration-300">
+                <div className="w-16 h-16 mx-auto rounded-full bg-white text-gray-900 mb-6 flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform">
                   {cat.icon}
                 </div>
-                <h3 className="text-base font-extrabold mb-1.5 text-[#1E3932]">{cat.name}</h3>
-                <p className="text-[#6b7280] text-xs font-medium leading-relaxed">{cat.desc}</p>
+                <h3 className="text-lg font-semibold mb-2 text-gray-900">{cat.name}</h3>
+                <p className="text-gray-500 text-sm">{cat.desc}</p>
               </Link>
             ))}
           </div>
@@ -232,61 +222,48 @@ export default function Home() {
       </section>
 
       {/* ── Promo Banner ── */}
-      <section className="bg-white">
-        <div className="container-page py-24 md:py-32 lg:py-36">
-          <div className="rounded-3xl p-8 md:p-12 lg:p-16 text-white relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #00704A 0%, #004E31 50%, #1E3932 100%)' }}>
-            {/* Decorative Pattern */}
-            <div className="absolute inset-0 opacity-5" style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L30 60M0 30L60 30' stroke='white' stroke-width='1'/%3E%3C/svg%3E")`,
-              backgroundRepeat: 'repeat'
-            }} />
-            <div className="absolute -top-20 -right-20 w-72 h-72 bg-white/5 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute -bottom-20 -left-20 w-72 h-72 bg-white/3 rounded-full blur-3xl pointer-events-none" />
-            <div className="relative z-10 max-w-xl">
-              <span className="inline-flex bg-white/10 border border-white/15 text-white text-xs font-semibold px-3.5 py-1.5 rounded-full uppercase tracking-widest mb-5">
-                Promo Spesial
-              </span>
-              <h2 className="heading-serif text-3xl md:text-4xl lg:text-5xl mt-0 mb-3 leading-tight tracking-tight" style={{ color: 'white' }}>
-                Diskon 20%<br />untuk Pelanggan Baru!
-              </h2>
-              <p className="text-white/70 text-base md:text-lg mb-8">Gunakan kode kupon di bawah ini saat checkout:</p>
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-                <div className="bg-white border-2 border-dashed border-[#00704A] text-[#00704A] rounded-2xl px-6 py-3 shadow-md flex items-center justify-center">
-                  <span className="text-lg md:text-xl font-black tracking-[0.15em] font-mono">WELCOME20</span>
-                </div>
-                <Link to="/products" className="px-7 py-3.5 bg-white text-[#00704A] rounded-2xl font-bold text-sm hover:bg-gray-100 transition-all shadow-lg active:scale-[0.98] flex items-center justify-center">
-                  Belanja Sekarang
-                </Link>
+      <section className="py-20 md:py-32 bg-gray-50">
+        <div className="container-page">
+          <div className="rounded-3xl p-10 md:p-16 bg-gray-900 text-white text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Diskon 20% untuk Pesanan Pertamamu
+            </h2>
+            <p className="text-gray-400 mb-10 max-w-lg mx-auto text-lg">
+              Gunakan kode promo di bawah ini saat checkout dan nikmati potongan harga spesial.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <div className="bg-white/10 px-8 py-4 rounded-xl border border-white/20">
+                <span className="text-2xl font-mono font-bold tracking-widest">KOPIKU17</span>
               </div>
+              <Link to="/products" className="px-8 py-4 bg-white text-gray-900 rounded-xl font-semibold hover:bg-gray-100 transition-colors">
+                Belanja Sekarang
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
       {/* ── Testimonials ── */}
-      <section style={{ background: 'linear-gradient(135deg, #f0fdf4 0%, #e8f5ee 50%, #f0fdf4 100%)' }} className="border-t border-[#d1e7dd]">
-        <div className="container-page py-24 md:py-32 lg:py-36">
-          <div className="text-center mb-12 md:mb-16">
-            <p className="text-xs font-bold uppercase tracking-widest text-[#00704A] mb-2.5">Testimoni</p>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-[#1E3932] tracking-tight">Kata Mereka</h2>
+      <section className="bg-white py-20 md:py-32">
+        <div className="container-page">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Kata Mereka</h2>
+            <p className="text-gray-500">Apa kata pelanggan tentang kopi kami.</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((t, i) => (
-              <div key={i} className="bg-white rounded-3xl p-8 md:p-10 border border-[#e5e7eb] flex flex-col items-center hover:shadow-2xl hover:shadow-[#00704A]/5 hover:border-[#00704A]/10 transition-all duration-400 relative overflow-hidden">
-                {/* Custom watermark quote icon */}
-                <span className="absolute top-4 left-6 text-7xl font-serif text-[#00704A]/5 pointer-events-none select-none">“</span>
-                <div className="flex justify-center gap-1 mb-5 relative z-10">
+              <div key={i} className="bg-gray-50 rounded-2xl p-8 flex flex-col items-center text-center">
+                <div className="flex justify-center gap-1 mb-6">
                   {[...Array(5)].map((_, j) => (
-                    <FaStar key={j} className={`w-4 h-4 ${j < t.rating ? 'text-amber-400' : 'text-gray-200'}`} />
+                    <FaStar key={j} className={`w-4 h-4 ${j < t.rating ? 'text-gray-900' : 'text-gray-300'}`} />
                   ))}
                 </div>
-                <p className="text-[#374151] text-sm md:text-base leading-relaxed flex-1 mb-6 text-center italic relative z-10 font-medium">"{t.text}"</p>
-                <div className="flex flex-col items-center mt-auto relative z-10">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#00704A] to-[#1E9E6E] flex items-center justify-center text-white text-base font-extrabold flex-shrink-0 mb-3 shadow-md shadow-[#00704A]/15 border-2 border-white">
+                <p className="text-gray-600 mb-8 italic">"{t.text}"</p>
+                <div className="mt-auto flex flex-col items-center">
+                  <div className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center text-gray-900 font-medium mb-3">
                     {t.name.charAt(0)}
                   </div>
-                  <p className="font-extrabold text-[#1E3932] text-sm">{t.name}</p>
-                  <p className="text-[#6b7280] text-[10px] font-bold tracking-wider uppercase mt-1">Pelanggan Setia</p>
+                  <p className="font-semibold text-gray-900">{t.name}</p>
                 </div>
               </div>
             ))}
@@ -295,20 +272,20 @@ export default function Home() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="bg-white border-t border-[#e5e7eb]">
-        <div className="container-page py-24 md:py-32 lg:py-36">
-          <div className="max-w-2xl mx-auto text-center">
-            <h2 className="heading-serif text-3xl md:text-4xl lg:text-5xl mb-6 tracking-tight">
+      <section className="bg-gray-50 py-24 md:py-40 border-t border-gray-100">
+        <div className="container-page">
+          <div className="max-w-2xl mx-auto flex flex-col items-center justify-center text-center">
+            <h2 className="text-3xl md:text-5xl font-bold mb-6 text-[#1E3932] tracking-tight">
               Siap Menikmati Kopi Terbaik?
             </h2>
-            <p className="text-[#6b7280] text-base md:text-lg mb-9 max-w-lg mx-auto leading-relaxed">
+            <p className="text-gray-500 text-lg mb-10 max-w-lg mx-auto">
               Pesan sekarang dan rasakan kenikmatan kopi premium langsung di rumah Anda.
             </p>
             <Link
               to="/products"
-              className="btn-primary-green inline-flex items-center gap-2 px-9 py-4 text-sm rounded-full shadow-lg hover:shadow-xl active:scale-[0.98]"
+              className="inline-flex items-center justify-center px-8 py-4 bg-gray-900 text-white rounded-full font-medium hover:bg-gray-800 transition-colors"
             >
-              Pesan Sekarang <FiArrowRight className="w-4 h-4" />
+              Pesan Sekarang
             </Link>
           </div>
         </div>

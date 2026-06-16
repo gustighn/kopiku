@@ -32,7 +32,7 @@ export default function CouponManagement() {
     <div>
       <div className="flex items-center justify-between mb-8">
         <h1 className="text-2xl font-bold text-dark-brown dark:text-cream" style={{ fontFamily: "'Playfair Display', serif" }}>Manajemen Kupon</h1>
-        <button onClick={() => setModalOpen(true)} className="flex items-center gap-2 px-6 py-3 bg-green-accent text-white rounded-xl font-medium hover:bg-green-dark"><FiPlus /> Tambah Kupon</button>
+        <button onClick={() => setModalOpen(true)} className="flex items-center gap-2 px-6 py-3 bg-white text-green-accent rounded-xl shadow-sm font-medium hover:bg-green-dark"><FiPlus /> Tambah Kupon</button>
       </div>
 
       <div className="bg-white dark:bg-dark-brown/50 rounded-2xl border border-cream-dark/30 dark:border-coffee/20 overflow-hidden">

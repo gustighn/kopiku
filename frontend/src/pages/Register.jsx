@@ -65,13 +65,13 @@ export default function Register() {
             <FiArrowLeft className="w-4 h-4" /> Kembali
           </Link>
 
-          <div className="text-center mb-8">
-            <h1 className="text-2xl font-bold text-[#1E3932] mb-1.5 tracking-tight">Buat Akun Baru</h1>
+          <div className="text-center mb-10">
+            <h1 className="text-3xl font-bold text-[#1E3932] mb-3 tracking-tight">Buat Akun Baru</h1>
             <p className="text-[#6b7280] text-sm">Isi data berikut untuk mendaftar.</p>
           </div>
 
-          <div className="bg-white rounded-2xl border border-[#d1e7dd] p-7 shadow-sm">
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+          <div className="bg-white rounded-3xl border border-[#d1e7dd] p-10 shadow-sm">
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <div>
                 <label className="block text-sm font-medium text-[#374151] mb-2">Nama Lengkap</label>
                 <input

@@ -37,10 +37,10 @@ export default function Cart() {
   if (!isAuthenticated) {
     return (
       <div className="container-page page-top pb-16 min-h-screen flex flex-col items-center justify-center text-center">
-        <FiShoppingCart className="w-16 h-16 mb-5 text-[#00704A]/20" />
-        <h2 className="text-2xl font-bold text-[#1E3932] mb-2">Silakan Login</h2>
+        <FiShoppingCart className="w-16 h-16 mb-5 text-primary/20" />
+        <h2 className="text-2xl font-bold text-ink mb-2">Silakan Login</h2>
         <p className="text-[#6b7280] text-sm mb-6">Login untuk melihat keranjang belanjamu</p>
-        <Link to="/login" className="px-6 py-2.5 bg-[#00704A] text-white rounded-full font-semibold text-sm hover:bg-[#004E31] transition-colors shadow-md shadow-[#00704A]/20">
+        <Link to="/login" className="px-6 py-2.5 bg-primary text-white rounded-full font-semibold text-sm hover:bg-primary-dark transition-colors shadow-md">
           Masuk
         </Link>
       </div>
@@ -52,10 +52,10 @@ export default function Cart() {
   if (!items || items.length === 0) {
     return (
       <div className="container-page page-top pb-16 min-h-screen flex flex-col items-center justify-center text-center">
-        <FiShoppingCart className="w-16 h-16 mb-5 text-[#00704A]/20" />
-        <h2 className="text-2xl font-bold text-[#1E3932] mb-2">Keranjang Kosong</h2>
+        <FiShoppingCart className="w-16 h-16 mb-5 text-primary/20" />
+        <h2 className="text-2xl font-bold text-ink mb-2">Keranjang Kosong</h2>
         <p className="text-[#6b7280] text-sm mb-6">Yuk, tambahkan kopi favoritmu!</p>
-        <Link to="/products" className="px-6 py-2.5 bg-[#00704A] text-white rounded-full font-semibold text-sm hover:bg-[#004E31] transition-colors shadow-md shadow-[#00704A]/20">
+        <Link to="/products" className="px-6 py-2.5 bg-primary text-white rounded-full font-semibold text-sm hover:bg-primary-dark transition-colors shadow-md">
           Jelajahi Produk
         </Link>
       </div>
@@ -64,26 +64,26 @@ export default function Cart() {
 
   return (
     <div className="min-h-screen" style={{ background: 'linear-gradient(135deg, #f0fdf4 0%, #ffffff 50%, #f0fdf4 100%)' }}>
-      <div className="container-page page-top pb-20 md:pb-28">
+      <div className="container-page page-top pb-32 md:pb-40">
         {/* Header */}
-        <div className="mb-8">
+        <div className="mb-12">
           <button
             onClick={() => navigate(-1)}
-            className="inline-flex items-center gap-2 text-sm text-[#6b7280] hover:text-[#00704A] transition-colors mb-4"
+            className="inline-flex items-center gap-2 text-sm text-[#6b7280] hover:text-[#00704A] transition-colors mb-6"
           >
             <FiArrowLeft className="w-4 h-4" /> Lanjut Belanja
           </button>
-          <h1 className="text-2xl md:text-3xl font-bold text-[#1E3932] tracking-tight">
+          <h1 className="text-3xl md:text-4xl font-bold text-[#1E3932] tracking-tight">
             Keranjang Belanja
-            <span className="ml-2 text-base font-medium text-[#6b7280]">({items.length} item)</span>
+            <span className="ml-3 text-lg font-medium text-[#6b7280]">({items.length} item)</span>
           </h1>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-6">
+        <div className="grid lg:grid-cols-3 gap-10">
           {/* Cart Items */}
-          <div className="lg:col-span-2 space-y-3">
+          <div className="lg:col-span-2 space-y-6">
             {items.map(item => (
-              <div key={item.id} className="bg-white rounded-2xl p-4 md:p-5 flex gap-4 items-center border border-[#d1e7dd]">
+              <div key={item.id} className="bg-white rounded-3xl p-6 md:p-8 flex gap-6 items-center border border-[#d1e7dd]">
                 <img
                   src={`/uploads/products/${item.product?.image}`}
                   alt={item.product?.name}
