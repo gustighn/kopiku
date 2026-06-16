@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import Modal from '../../components/Modal';
 import LoadingSpinner from '../../components/LoadingSpinner';
 import { getAllOrders, updateOrderStatus } from '../../services/orderService';
+import { getImageUrl } from '../../services/api';
 
 const formatPrice = (p) => 'Rp ' + Number(p).toLocaleString('id-ID');
 const statusConfig = {
@@ -94,7 +95,7 @@ export default function OrderManagement() {
             <div className="border-t border-cream-dark/30 dark:border-coffee/20 pt-4 space-y-3">
               {detailOrder.items?.map(item => (
                 <div key={item.id} className="flex items-center gap-3">
-                  <img src={`/uploads/products/${item.product?.image}`} alt="" className="w-12 h-12 rounded-lg object-cover" />
+                  <img src={getImageUrl(item.product?.image)} alt="" className="w-12 h-12 rounded-lg object-cover" />
                   <div className="flex-1"><p className="text-sm font-medium text-dark-brown dark:text-cream">{item.product?.name}</p><p className="text-xs text-dark-brown/50 dark:text-cream/50">x{item.quantity}</p></div>
                   <p className="font-semibold text-dark-brown dark:text-cream text-sm">{formatPrice(item.price * item.quantity)}</p>
                 </div>

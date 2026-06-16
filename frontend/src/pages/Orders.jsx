@@ -4,6 +4,7 @@ import { FiPackage, FiChevronDown, FiChevronUp, FiArrowLeft } from 'react-icons/
 import { useState } from 'react';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { getOrders } from '../services/orderService';
+import { getImageUrl } from '../services/api';
 
 const formatPrice = (p) => 'Rp ' + Number(p).toLocaleString('id-ID');
 
@@ -86,7 +87,7 @@ export default function Orders() {
                         {order.items?.map(item => (
                           <div key={item.id} className="flex items-center gap-3">
                             <img
-                              src={`/uploads/products/${item.product?.image}`}
+                              src={getImageUrl(item.product?.image)}
                               alt=""
                               className="w-11 h-11 rounded-xl object-cover flex-shrink-0 bg-[#f1f8f5]"
                             />

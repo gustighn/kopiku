@@ -7,6 +7,7 @@ import LoadingSpinner from '../components/LoadingSpinner';
 import useAuthStore from '../store/useAuthStore';
 import useCartStore from '../store/useCartStore';
 import { validateCoupon } from '../services/couponService';
+import { getImageUrl } from '../services/api';
 
 const formatPrice = (p) => 'Rp ' + Number(p).toLocaleString('id-ID');
 
@@ -85,7 +86,7 @@ export default function Cart() {
             {items.map(item => (
               <div key={item.id} className="bg-white rounded-3xl p-6 md:p-8 flex gap-6 items-center border border-[#d1e7dd]">
                 <img
-                  src={`/uploads/products/${item.product?.image}`}
+                  src={getImageUrl(item.product?.image)}
                   alt={item.product?.name}
                   className="w-20 h-20 md:w-24 md:h-24 object-cover rounded-xl flex-shrink-0 bg-[#f1f8f5]"
                 />

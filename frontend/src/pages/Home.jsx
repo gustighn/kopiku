@@ -5,6 +5,7 @@ import { FaStar } from 'react-icons/fa';
 import { useState, useEffect, useRef } from 'react';
 import ProductCard from '../components/ProductCard';
 import { getProducts } from '../services/productService';
+import { getImageUrl } from '../services/api';
 
 const categories = [
   { name: 'Espresso', icon: <FiCoffee />, desc: 'Kopi pekat dan intens' },
@@ -104,7 +105,7 @@ export default function Home() {
                       {/* Product Image */}
                       <div className="flex justify-center mb-6">
                         <img
-                          src={`/uploads/products/${featuredProduct.image}`}
+                          src={getImageUrl(featuredProduct.image)}
                           alt={featuredProduct.name}
                           className="w-56 h-56 lg:w-64 lg:h-64 object-contain transition-all duration-500"
                           style={{ filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.15))' }}

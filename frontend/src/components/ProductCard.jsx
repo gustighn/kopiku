@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import useAuthStore from '../store/useAuthStore';
 import useCartStore from '../store/useCartStore';
 import { toggleWishlist } from '../services/wishlistService';
+import { getImageUrl } from '../services/api';
 
 const formatPrice = (price) => 'Rp ' + Number(price).toLocaleString('id-ID');
 
@@ -37,7 +38,7 @@ export default function ProductCard({ product, wishlisted = false, onWishlistCha
       className="group bg-white rounded-2xl p-4 flex flex-col h-full transition-all duration-300 cursor-pointer hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-gray-100 hover:border-gray-200">
       
       <div className="relative aspect-[4/3] bg-gray-50/50 rounded-xl flex items-center justify-center p-6 overflow-hidden mb-5">
-        <img src={`/uploads/products/${product.image}`} alt={product.name}
+        <img src={getImageUrl(product.image)} alt={product.name}
           className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" />
         <button onClick={handleWishlist}
           className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white shadow-sm flex items-center justify-center transition-all hover:scale-110 text-gray-400 hover:text-red-500 z-10">

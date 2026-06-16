@@ -8,6 +8,7 @@ import LoadingSpinner from '../components/LoadingSpinner';
 import Modal from '../components/Modal';
 import useCartStore from '../store/useCartStore';
 import { createOrder } from '../services/orderService';
+import { getImageUrl } from '../services/api';
 
 const formatPrice = (p) => 'Rp ' + Number(p).toLocaleString('id-ID');
 
@@ -162,7 +163,7 @@ export default function Checkout() {
                 {items.map(item => (
                   <div key={item.id} className="flex items-center gap-3">
                     <img
-                      src={`/uploads/products/${item.product?.image}`}
+                      src={getImageUrl(item.product?.image)}
                       alt=""
                       className="w-11 h-11 rounded-xl object-cover flex-shrink-0 bg-[#f1f8f5]"
                     />

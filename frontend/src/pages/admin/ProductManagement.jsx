@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import Modal from '../../components/Modal';
 import LoadingSpinner from '../../components/LoadingSpinner';
 import { getProducts, createProduct, updateProduct, deleteProduct } from '../../services/productService';
+import { getImageUrl } from '../../services/api';
 
 const formatPrice = (p) => 'Rp ' + Number(p).toLocaleString('id-ID');
 
@@ -85,7 +86,7 @@ export default function ProductManagement() {
                 <tr key={product.id} className="hover:bg-cream/30 dark:hover:bg-coffee/5 transition-colors">
                   <td className="px-6 py-4">
                     <div className="flex items-center gap-3">
-                      <img src={`/uploads/products/${product.image}`} alt="" className="w-12 h-12 rounded-lg object-cover" />
+                      <img src={getImageUrl(product.image)} alt="" className="w-12 h-12 rounded-lg object-cover" />
                       <span className="font-medium text-dark-brown dark:text-cream text-sm">{product.name}</span>
                     </div>
                   </td>

@@ -11,6 +11,7 @@ import { getProduct, getProducts } from '../services/productService';
 import { createReview, getProductReviews } from '../services/reviewService';
 import useAuthStore from '../store/useAuthStore';
 import useCartStore from '../store/useCartStore';
+import { getImageUrl } from '../services/api';
 
 const formatPrice = (p) => 'Rp ' + Number(p).toLocaleString('id-ID');
 
@@ -82,7 +83,7 @@ export default function ProductDetail() {
           {/* Image */}
           <div className="rounded-3xl overflow-hidden flex items-center justify-center p-12 md:p-16 aspect-square border border-[#d1e7dd]" style={{ background: 'linear-gradient(135deg, #f0fdf4, #e8f5ee)' }}>
             <img
-              src={`/uploads/products/${product.image}`}
+              src={getImageUrl(product.image)}
               alt={product.name}
               className="w-full max-w-xs h-auto object-contain hover:scale-105 transition-transform duration-700 drop-shadow-lg"
             />
