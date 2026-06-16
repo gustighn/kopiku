@@ -1,0 +1,412 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #00704A;
+  --color-primary-dark: #004E31;
+  --color-primary-light: #1E9E6E;
+  --color-primary-active: #005A3A;
+  --color-primary-disabled: #d1e7dd;
+  --color-ink: #1E3932;
+  --color-body: #374151;
+  --color-muted: #6b7280;
+  --color-muted-soft: #898989;
+  --color-hairline: #e5e7eb;
+  --color-hairline-soft: #f3f4f6;
+  --color-canvas: #ffffff;
+  --color-surface-soft: #f1f8f5;
+  --color-surface-card: #f5f5f5;
+  --color-surface-strong: #d1e7dd;
+  --color-surface-dark: #1E3932;
+  --color-surface-dark-elevated: #27473f;
+  --color-on-primary: #ffffff;
+  --color-on-dark: #ffffff;
+  --color-on-dark-soft: #a1c4b5;
+  --color-brand-accent: #00704A;
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  --color-badge-orange: #fb923c;
+  --color-badge-pink: #ec4899;
+  --color-badge-violet: #8b5cf6;
+  --color-badge-emerald: #34d399;
+
+  /* Aliasing old color variables */
+  --color-coffee: #1E3932;
+  --color-coffee-light: #27473f;
+  --color-cream: #ffffff;
+  --color-cream-dark: #f1f8f5;
+  --color-dark-brown: #1E3932;
+  --color-green-accent: #00704A;
+  --color-green-dark: #004E31;
+
+  --font-family-sans: 'Inter', sans-serif;
+  --font-family-serif: 'Playfair Display', serif;
+  --animate-fade-in: fadeIn 0.5s ease-out;
+  --animate-slide-up: slideUp 0.5s ease-out;
+  --animate-slide-down: slideDown 0.3s ease-out;
+  --animate-bounce-in: bounceIn 0.6s ease-out;
+}
+
+/* Green palette & spacing variables */
+:root {
+  --green-50: #f0fdf4;
+  --green-100: #dcfce7;
+  --green-200: #bbf7d0;
+  --green-300: #86efac;
+  --green-400: #4ade80;
+  --green-500: #00704A;
+  --green-600: #004E31;
+  --green-700: #1E3932;
+  --soft-green-gradient: linear-gradient(135deg, #f0fdf4, #d1fae5 45%, #a7f3d0 100%);
+
+  /* Spacing scale */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounceIn {
+  0% { opacity: 0; transform: scale(0.3); }
+  50% { opacity: 1; transform: scale(1.05); }
+  70% { transform: scale(0.9); }
+  100% { transform: scale(1); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0, 112, 74, 0.3); }
+  50% { box-shadow: 0 0 20px 5px rgba(0, 112, 74, 0.15); }
+}
+
+@keyframes rotate-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #ffffff;
+  color: #1E3932;
+  transition: background-color 0.3s, color 0.3s;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body.dark {
+  background-color: #0f1f1b;
+  color: #e0f2ed;
+}
+
+/* ============================================================
+   CONTAINER SYSTEM — centered, max-width cap
+   ============================================================ */
+.container-page {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;   /* 20px on mobile */
+  padding-right: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .container-page {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-page {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .container-page {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f1f8f5; }
+::-webkit-scrollbar-thumb { background: #a7f3d0; border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: #00704A; }
+
+body.dark ::-webkit-scrollbar-track { background: #1a2f28; }
+body.dark ::-webkit-scrollbar-thumb { background: #27473f; }
+
+/* ============================================================
+   TOAST
+   ============================================================ */
+.Toastify__toast--success { background: #00704A !important; }
+.Toastify__toast--error { background: #ef4444 !important; }
+
+/* ============================================================
+   SKELETON
+   ============================================================ */
+.skeleton {
+  background: linear-gradient(90deg, #e0f2ed 25%, #f0fdf4 50%, #e0f2ed 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 8px;
+}
+
+body.dark .skeleton {
+  background: linear-gradient(90deg, #1a2f28 25%, #27473f 50%, #1a2f28 75%);
+  background-size: 200% 100%;
+}
+
+/* ============================================================
+   PAGE TRANSITION
+   ============================================================ */
+.page-enter {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* ============================================================
+   FORM ELEMENTS — consistent styling
+   ============================================================ */
+input, textarea, select {
+  font-family: 'Inter', sans-serif;
+}
+
+/* ============================================================
+   UTILITY: Section spacing
+   ============================================================ */
+.section-spacing {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+@media (min-width: 768px) {
+  .section-spacing {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+}
+
+/* ============================================================
+   SOFT GREEN THEME + SPACING UTILITIES
+   ============================================================ */
+.soft-green-bg {
+  background-image: var(--soft-green-gradient);
+  color: var(--color-primary);
+}
+
+.card {
+  background: var(--color-cream);
+  padding: var(--space-lg);
+  border-radius: 20px;
+  border: 1px solid rgba(0, 112, 74, 0.05);
+  box-shadow: 0 8px 30px rgba(30, 57, 50, 0.03);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 112, 74, 0.06);
+  border-color: rgba(0, 112, 74, 0.15);
+}
+
+.p-md { padding: var(--space-md) !important; }
+.p-lg { padding: var(--space-lg) !important; }
+.py-md { padding-top: var(--space-md); padding-bottom: var(--space-md); }
+.px-md { padding-left: var(--space-md); padding-right: var(--space-md); }
+
+.space-y-md > * + * { margin-top: var(--space-md); }
+.space-y-lg > * + * { margin-top: var(--space-lg); }
+.gap-md { gap: var(--space-md); }
+.gap-lg { gap: var(--space-lg); }
+
+/* Stack utility helpers */
+.stack > * + * { margin-top: var(--space-md); }
+.u-stack > * + * { margin-top: var(--space-lg); }
+
+/* ============================================================
+   UTILITY: Page top offset (accounts for fixed navbar)
+   ============================================================ */
+.page-top {
+  padding-top: 7.5rem;
+}
+
+@media (min-width: 768px) {
+  .page-top {
+    padding-top: 9.5rem;
+  }
+}
+
+.hero-top {
+  padding-top: 8.5rem;
+}
+
+@media (min-width: 768px) {
+  .hero-top {
+    padding-top: 12rem;
+  }
+}
+
+/* ============================================================
+   DECORATIVE: Circular blobs for hero backgrounds
+   ============================================================ */
+.hero-circle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(0, 112, 74, 0.06);
+  pointer-events: none;
+}
+
+.hero-circle-lg {
+  width: 500px;
+  height: 500px;
+}
+
+.hero-circle-md {
+  width: 300px;
+  height: 300px;
+}
+
+.hero-circle-sm {
+  width: 180px;
+  height: 180px;
+}
+
+/* ============================================================
+   STARBUCKS-STYLE PRODUCT CARD
+   ============================================================ */
+.product-card-starbucks {
+  background: #f5f5f5;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+  cursor: pointer;
+  border: 1px solid #e5e7eb;
+}
+
+.product-card-starbucks:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 112, 74, 0.12);
+  border-color: rgba(0, 112, 74, 0.2);
+}
+
+.product-card-featured {
+  background: linear-gradient(180deg, #00704A 0%, #004E31 100%);
+  color: white;
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+}
+
+.product-card-featured::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L30 60M0 30L60 30' stroke='rgba(255,255,255,0.04)' stroke-width='1'/%3E%3C/svg%3E") repeat;
+  pointer-events: none;
+}
+
+/* ============================================================
+   GRADIENT BUTTONS
+   ============================================================ */
+.btn-primary-green {
+  background: linear-gradient(135deg, #00704A, #1E9E6E);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary-green:hover {
+  background: linear-gradient(135deg, #005A3A, #00704A);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(0, 112, 74, 0.3);
+}
+
+.btn-primary-green::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent, rgba(255,255,255,0.1));
+  pointer-events: none;
+}
+
+/* ============================================================
+   SERIF HEADING UTILITY
+   ============================================================ */
+.heading-serif {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 700;
+  color: #00704A;
+}
+
+/* ============================================================
+   REWARDS BADGE
+   ============================================================ */
+.rewards-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background: rgba(0, 112, 74, 0.08);
+  border: 1px solid rgba(0, 112, 74, 0.15);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #00704A;
+  letter-spacing: 0.5px;
+}
